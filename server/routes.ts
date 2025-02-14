@@ -12,11 +12,9 @@ const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_BOT_TOKEN!
 
 // Staff roles to display (add your specific role IDs here)
 const STAFF_ROLE_IDS = [
-  "961457576476819547",  // Lazy Fox Owner
-  "961467472123404298",  // Server Manager
-  "1246621054621978738", // Staff Manager
-  "1075934726667386930", // Staff In Training
-  "1251999034273562625"  // Staff Intern
+  "961457576342593607", // Admin
+  "961457576342593608", // Moderator
+  "961457576342593609"  // Helper
 ];
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -24,13 +22,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/discord/staff", async (req, res) => {
     try {
       const [members, roles] = await Promise.all([
-        rest.get(Routes.guildMembers(GUILD_ID, { limit: 1000 })) as Promise<any[]>,
+        rest.get(Routes.guildMembers(GUILD_ID)) as Promise<any[]>,
         rest.get(Routes.guildRoles(GUILD_ID)) as Promise<any[]>
       ]);
 
-      console.log('Fetched members:', members.length);
-      console.log('Fetched roles:', roles.map(r => ({ id: r.id, name: r.name })));
-      
       const staffMembers = members
         .filter(member => 
           member.roles.some((roleId: string) => STAFF_ROLE_IDS.includes(roleId))
