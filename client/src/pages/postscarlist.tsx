@@ -15,8 +15,8 @@ interface DiscordMessage {
   content: string;
   timestamp: string;
   attachments: Array<{
-  url: string;
-  contentType: string;
+    url: string;
+    contentType: string;
   }>;
 }
 

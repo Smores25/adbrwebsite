@@ -11,19 +11,21 @@ const features = [
   },
   {
     title: "Community Events",
-    description: "Regular tournaments and gaming sessions",
+    description: "Regular gaming sessions",
     icon: Users,
   },
-  {
+  
+  /*{
     title: "Ranking System",
     description: "Level up and earn roles based on participation",
     icon: Trophy,
   },
   {
     title: "Music Bots",
-    description: "High-quality music bots for your gaming sessions",
-    icon: Music,
-  },
+    description: "Game sessions hosted",
+    icon: Users,
+  },*/
+  
 ];
 
 export default function Features() {

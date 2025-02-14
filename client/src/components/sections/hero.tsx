@@ -2,15 +2,16 @@ import { Button } from "@/components/ui/button";
 import { MotionFade } from "@/components/ui/motion-fade";
 import { SiDiscord } from "react-icons/si";
 import { Link } from "wouter";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
-const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
+const DISCORD_CHANNEL_URL = "https://discord.gg/bSEeJpPvD8";
 
 export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center px-4 py-20">
       {/* Background Image with Overlay */}
       <div 
-        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc')] 
+        className="absolute inset-0 bg-[url('https://i.imgur.com/d831eTv.png')] 
         bg-cover bg-center bg-no-repeat"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95" />
@@ -20,13 +21,13 @@ export default function Hero() {
       <div className="relative max-w-4xl mx-auto text-center">
         <MotionFade>
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6">
-            Welcome to GamerHub
+            Welcome to ADBR Zone
           </h1>
         </MotionFade>
 
         <MotionFade delay={0.2}>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-            Join our thriving gaming community where passion meets play. Connect, compete, and create lasting friendships.
+            The ADBR Zone is your ultimate destination for discovering the latest leaks, updates, and content for Greenville Roblox.
           </p>
         </MotionFade>
 
@@ -38,11 +39,19 @@ export default function Hero() {
                 Join Our Server
               </Button>
             </a>
-            <Link href="/posts">
-              <Button size="lg" variant="secondary">
-                View Posts
-              </Button>
-            </Link>
+
+            {/* Dropdown Button for GV Leaks */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button size="lg" variant="secondary">Posts</Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem onClick={() => window.location.href = "/postsnews"}>GV News</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postsupdates"}>GV Future Updates</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/posts"}>GV Leaks</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postscarlist"}>Car List</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </MotionFade>
       </div>

@@ -3,11 +3,12 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { MotionFade } from "@/components/ui/motion-fade";
 
 const rules = [
-  "Be respectful to all members",
-  "No hate speech, racism, or discrimination",
-  "Keep content in appropriate channels",
+  "Any form of discrimination will result in a warn or ban.",
+  "We expect all members to respect one another and if arguments are to break out, we expect you to take it to your dms.",
+  "Any sensitive topics (political talks, major events, events involving the death of a real person(s), etc.) are not to be discussed within the server, especially if staff have asked you not to speak about them.",
   "No spamming or excessive self-promotion",
-  "Follow Discord's Terms of Service",
+  "Any Type of NSFW is not allowed.",
+  "We have dedicated channels for advertising. Do not advertise anything (servers, YouTube channels, etc.) unless you have been given permission by ADBR or the co-owners.",
 ];
 
 export default function Rules() {
