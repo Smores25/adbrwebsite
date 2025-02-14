@@ -24,7 +24,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/discord/staff", async (req, res) => {
     try {
       const [members, roles] = await Promise.all([
-        rest.get(Routes.guildMembers(GUILD_ID)) as Promise<any[]>,
+        rest.get(Routes.guildMembers(GUILD_ID, { limit: 1000 })) as Promise<any[]>,
         rest.get(Routes.guildRoles(GUILD_ID)) as Promise<any[]>
       ]);
 
