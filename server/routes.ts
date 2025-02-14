@@ -14,20 +14,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Discord messages endpoint
   app.get("/api/discord/messages", async (req, res) => {
     try {
+      // Fetch more messages since we'll be filtering them
       const messages = await rest.get(
-        Routes.channelMessages(CHANNEL_ID, { limit: 10 })
+        Routes.channelMessages(CHANNEL_ID)
       ) as any[];
 
-      const formattedMessages = messages.map(msg => ({
-        id: msg.id,
-        author: msg.author.username,
-        content: msg.content,
-        timestamp: msg.timestamp,
-        attachments: msg.attachments.map((att: any) => ({
-          url: att.url,
-          contentType: att.content_type
+      const formattedMessages = messages
+        .filter(msg => msg.attachments.some((att: any) => att.content_type?.startsWith('image/')))
+        .map(msg => ({
+          id: msg.id,
+          author: msg.author.username,
+          content: msg.content,
+          timestamp: msg.timestamp,
+          attachments: msg.attachments
+            .filter((att: any) => att.content_type?.startsWith('image/'))
+            .map((att: any) => ({
+              url: att.url,
+              contentType: att.content_type
+            }))
         }))
-      }));
+        .slice(0, 10); // Limit to 10 image posts
 
       res.json(formattedMessages);
     } catch (error: any) {
