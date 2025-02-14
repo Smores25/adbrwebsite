@@ -2,21 +2,26 @@ import { Button } from "@/components/ui/button";
 import { MotionFade } from "@/components/ui/motion-fade";
 import { SiDiscord } from "react-icons/si";
 import { Link } from "wouter";
-import { GamepadIcon } from "lucide-react";
 
 const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
 
 export default function Hero() {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center px-4 py-20">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative min-h-[80vh] flex items-center justify-center px-4 py-20">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc')] 
+        bg-cover bg-center bg-no-repeat"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95" />
+      </div>
+
+      {/* Content */}
+      <div className="relative max-w-4xl mx-auto text-center">
         <MotionFade>
-          <div className="flex flex-col items-center gap-4">
-            <GamepadIcon className="w-24 h-24 text-primary animate-pulse" />
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6">
-              Welcome to GamerHub
-            </h1>
-          </div>
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6">
+            Welcome to GamerHub
+          </h1>
         </MotionFade>
 
         <MotionFade delay={0.2}>
