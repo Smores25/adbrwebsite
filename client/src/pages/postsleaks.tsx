@@ -47,6 +47,9 @@ export default function Posts() {
               View Channel on Discord
             </Button>
           </a>
+          <Button variant="ghost" className="mt-4" onClick={() => window.location.href = "/"}>
+            Back to Home
+          </Button>
         </div>
 
         <ScrollArea className="h-[600px] rounded-md border">
