@@ -9,8 +9,8 @@ import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
 import { ImageViewer } from "@/components/ui/image-viewer";
 
-const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
-const CHANNEL_ID = "961457576795602960";
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602962";
+const CHANNEL_ID = "961457576795602962";
 
 interface DiscordMessage {
   id: string;
@@ -25,13 +25,13 @@ interface DiscordMessage {
 
 export default function Posts() {
   const { data: messages, isLoading, error } = useQuery<DiscordMessage[]>({
-    queryKey: [`/api/discord/messages/${CHANNEL_ID}?type=attachments`]
+    queryKey: [`/api/discord/messages/${CHANNEL_ID}?`]
   });
 
   return (
     <div className="min-h-screen bg-background py-20 px-4 relative">
       <div 
-        className="absolute inset-0 bg-[url('https://i.imgur.com/tq7XTEB.png')] 
+        className="absolute inset-0 bg-[url('https://i.imgur.com/8ZXhgr3.png')] 
         bg-cover bg-center bg-no-repeat"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95" />
@@ -39,8 +39,8 @@ export default function Posts() {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-8">
           <SectionHeading 
-            title="GV Leaks" 
-            subtitle="Cars, buildings and features that are in the works by developers or contributors!"
+            title="GV Future Updates" 
+            subtitle="Upcoming stuff for Greenville!"
           />
           <a 
             href={DISCORD_CHANNEL_URL} 

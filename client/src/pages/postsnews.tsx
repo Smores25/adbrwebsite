@@ -7,8 +7,9 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
+import { ImageViewer } from "@/components/ui/image-viewer";
 
-const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602957";
 const CHANNEL_ID = "961457576795602957";
 
 interface DiscordMessage {
@@ -24,11 +25,17 @@ interface DiscordMessage {
 
 export default function Posts() {
   const { data: messages, isLoading, error } = useQuery<DiscordMessage[]>({
-    queryKey: [`/api/discord/messages/${CHANNEL_ID}`]
+    queryKey: [`/api/discord/messages/${CHANNEL_ID}?`]
   });
 
   return (
-    <div className="min-h-screen bg-background py-20 px-4">
+    <div className="min-h-screen bg-background py-20 px-4 relative">
+      <div 
+        className="absolute inset-0 bg-[url('https://i.imgur.com/bnC9cs4.png')] 
+        bg-cover bg-center bg-no-repeat"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95" />
+      </div>
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-8">
           <SectionHeading 
@@ -46,6 +53,9 @@ export default function Posts() {
               View Channel on Discord
             </Button>
           </a>
+          <Button variant="ghost" className="mt-4" onClick={() => window.location.href = "/"}>
+            Back to Home
+          </Button>
         </div>
 
         <ScrollArea className="h-[600px] rounded-md border">
@@ -75,14 +85,21 @@ export default function Posts() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-lg mb-4">{message.content}</p>
+                      {message.content && (
+                        <p className="text-lg mb-4 whitespace-pre-wrap">{message.content}</p>
+                      )}
+                      {message.referencedMessage && (
+                        <div className="ml-4 pl-4 border-l-2 border-primary/20 mb-4">
+                          <p className="text-sm text-muted-foreground mb-2">Forwarded message:</p>
+                          <p className="text-lg whitespace-pre-wrap">{message.referencedMessage}</p>
+                        </div>
+                      )}
                       {message.attachments.map((attachment, i) => (
                         attachment.contentType?.startsWith('image/') && (
                           <AspectRatio key={i} ratio={16/9} className="overflow-hidden rounded-md">
-                            <img
+                            <ImageViewer
                               src={attachment.url}
                               alt={`Attachment from ${message.author}`}
-                              className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
                             />
                           </AspectRatio>
                         )
