@@ -2,6 +2,7 @@ import Hero from "@/components/sections/hero";
 import Features from "@/components/sections/features";
 import Rules from "@/components/sections/rules";
 import Community from "@/components/sections/community";
+import Staff from "@/components/sections/staff";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Rules />
+      <Staff />
       <Community />
     </div>
   );
