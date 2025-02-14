@@ -7,6 +7,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
+import { ImageViewer } from "@/components/ui/image-viewer";
 
 const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
 const CHANNEL_ID = "961457576795602960";
@@ -79,10 +80,9 @@ export default function Posts() {
                       {message.attachments.map((attachment, i) => (
                         attachment.contentType?.startsWith('image/') && (
                           <AspectRatio key={i} ratio={16/9} className="overflow-hidden rounded-md">
-                            <img
+                            <ImageViewer
                               src={attachment.url}
                               alt={`Attachment from ${message.author}`}
-                              className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
                             />
                           </AspectRatio>
                         )
