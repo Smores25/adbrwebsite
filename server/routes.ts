@@ -26,6 +26,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         rest.get(Routes.guildRoles(GUILD_ID)) as Promise<any[]>
       ]);
 
+      console.log('Fetched members:', members.length);
+      console.log('Fetched roles:', roles.map(r => ({ id: r.id, name: r.name })));
+      
       const staffMembers = members
         .filter(member => 
           member.roles.some((roleId: string) => STAFF_ROLE_IDS.includes(roleId))
