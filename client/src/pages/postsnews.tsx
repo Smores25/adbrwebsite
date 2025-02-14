@@ -76,7 +76,7 @@ export default function Posts() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-lg mb-4">{message.content}</p>
+                      <p className="text-lg mb-4 whitespace-pre-wrap">{message.content}</p>
                       {message.attachments.map((attachment, i) => (
                         attachment.contentType?.startsWith('image/') && (
                           <AspectRatio key={i} ratio={16/9} className="overflow-hidden rounded-md">
