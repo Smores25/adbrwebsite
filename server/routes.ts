@@ -50,7 +50,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           id: msg.id,
           author: msg.author.username,
           content: msg.content || '',
-          referencedMessage: msg.message_reference ? msg.referenced_message?.content : null,
+          referencedMessage: msg.referenced_message?.content || null,
           timestamp: msg.timestamp,
           attachments: [...(msg.attachments || []), ...(msg.message_reference ? (msg.referenced_message?.attachments || []) : [])]
             .filter((att: any) => att.content_type?.startsWith('image/'))
