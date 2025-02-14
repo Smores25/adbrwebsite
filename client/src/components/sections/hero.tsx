@@ -3,6 +3,8 @@ import { MotionFade } from "@/components/ui/motion-fade";
 import { SiDiscord } from "react-icons/si";
 import { Link } from "wouter";
 
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
+
 export default function Hero() {
   return (
     <section className="min-h-[80vh] flex items-center justify-center px-4 py-20">
@@ -21,10 +23,12 @@ export default function Hero() {
 
         <MotionFade delay={0.4}>
           <div className="flex gap-4 justify-center">
-            <Button size="lg" className="gap-2">
-              <SiDiscord className="w-5 h-5" />
-              Join Our Server
-            </Button>
+            <a href={DISCORD_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="gap-2">
+                <SiDiscord className="w-5 h-5" />
+                Join Our Server
+              </Button>
+            </a>
             <Link href="/posts">
               <Button size="lg" variant="secondary">
                 View Posts
