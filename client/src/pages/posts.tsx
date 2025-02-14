@@ -3,6 +3,10 @@ import { MotionFade } from "@/components/ui/motion-fade";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button } from "@/components/ui/button";
+import { SiDiscord } from "react-icons/si";
+
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
 
 // Mock data - This would be replaced with real data from your API
 const posts = [
@@ -33,10 +37,23 @@ export default function Posts() {
   return (
     <div className="min-h-screen bg-background py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <SectionHeading 
-          title="Channel Posts" 
-          subtitle="Latest updates from our gaming community"
-        />
+        <div className="flex flex-col items-center mb-8">
+          <SectionHeading 
+            title="Gaming Highlights" 
+            subtitle="Latest updates from our Discord channel"
+          />
+          <a 
+            href={DISCORD_CHANNEL_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="mt-4"
+          >
+            <Button variant="outline" className="gap-2">
+              <SiDiscord className="w-5 h-5" />
+              View Channel on Discord
+            </Button>
+          </a>
+        </div>
 
         <ScrollArea className="h-[600px] rounded-md border">
           <div className="space-y-4 p-4">
