@@ -14,7 +14,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Discord messages endpoint
   app.get("/api/discord/messages", async (req, res) => {
     try {
-      // Fetch more messages since we'll be filtering them
+      // Fetch messages from Discord
       const messages = await rest.get(
         Routes.channelMessages(CHANNEL_ID)
       ) as any[];
@@ -32,8 +32,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
               url: att.url,
               contentType: att.content_type
             }))
-        }))
-        .slice(0, 10); // Limit to 10 image posts
+        }));
 
       res.json(formattedMessages);
     } catch (error: any) {
