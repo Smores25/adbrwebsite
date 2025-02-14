@@ -58,8 +58,14 @@ app.use((req, res, next) => {
 
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client
-  const PORT = 10000;
-  server.listen(PORT, "0.0.0.0", () => {
-    log(`listening on port ${PORT}`);
+  const port = 10000;
+
+  app.get('/', (req, res) => {
+    res.send('Hello World!');
   });
-})();
+
+  app.listen(port, () => {
+    console.log(`[express] listening on port ${port}`);
+  });
+
+  });
