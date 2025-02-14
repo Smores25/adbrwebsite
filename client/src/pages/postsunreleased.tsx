@@ -9,8 +9,8 @@ import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
 import { ImageViewer } from "@/components/ui/image-viewer";
 
-const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
-const CHANNEL_ID = "961457576795602960";
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/975708408562978886";
+const CHANNEL_ID = "975708408562978886";
 
 interface DiscordMessage {
   id: string;
@@ -25,7 +25,7 @@ interface DiscordMessage {
 
 export default function Posts() {
   const { data: messages, isLoading, error } = useQuery<DiscordMessage[]>({
-    queryKey: [`/api/discord/messages/${CHANNEL_ID}?type=attachments`]
+    queryKey: [`/api/discord/messages/${CHANNEL_ID}?`]
   });
 
   return (
@@ -33,8 +33,8 @@ export default function Posts() {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-8">
           <SectionHeading 
-            title="GV Leaks" 
-            subtitle="Cars, buildings and features that are in the works by developers or contributors!"
+            title="GV Unreleased Cars" 
+            subtitle="Unreleased car spots will be posted here!"
           />
           <a 
             href={DISCORD_CHANNEL_URL} 
