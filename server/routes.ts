@@ -49,7 +49,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         .map(msg => ({
           id: msg.id,
           author: msg.author.username,
-          content: msg.content || msg.referenced_message?.content || '',
+          content: msg.content || '',
           referencedMessage: msg.referenced_message?.content || null,
           timestamp: msg.timestamp,
           attachments: [...(msg.attachments || []), ...(msg.message_reference ? (msg.referenced_message?.attachments || []) : [])]
