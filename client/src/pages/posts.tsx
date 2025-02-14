@@ -1,3 +1,4 @@
+
 import { SectionHeading } from "@/components/ui/section-heading";
 import { MotionFade } from "@/components/ui/motion-fade";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -8,6 +9,7 @@ import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
 
 const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/1076248826731561140";
+const CHANNEL_ID = "1076248826731561140";
 
 interface DiscordMessage {
   id: string;
@@ -15,14 +17,14 @@ interface DiscordMessage {
   content: string;
   timestamp: string;
   attachments: Array<{
-  url: string;
-  contentType: string;
+    url: string;
+    contentType: string;
   }>;
 }
 
 export default function Posts() {
   const { data: messages, isLoading, error } = useQuery<DiscordMessage[]>({
-    queryKey: ["/api/discord/messages"]
+    queryKey: [`/api/discord/messages/${CHANNEL_ID}`]
   });
 
   return (
