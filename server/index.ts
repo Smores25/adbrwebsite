@@ -58,14 +58,13 @@ app.use((req, res, next) => {
 
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client
-  const port = 10000;
+    const PORT = process.env.PORT || 10000; // Use Render's dynamic port
 
-  app.get('/', (req, res) => {
-    res.send('Hello World!');
-  });
+    app.get("/", (req, res) => {
+        res.send("Server is running!");
+    });
 
-  app.listen(port, () => {
-    console.log(`[express] listening on port ${port}`);
+    app.listen(PORT, () => {
+        console.log(`[express] Listening on port ${PORT}`);
   });
-
-  });
+})();
