@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MotionFade } from "@/components/ui/motion-fade";
 import { SiDiscord } from "react-icons/si";
 import { Link } from "wouter";
+import { GamepadIcon } from "lucide-react";
 
 const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
 
@@ -10,9 +11,12 @@ export default function Hero() {
     <section className="min-h-[80vh] flex items-center justify-center px-4 py-20">
       <div className="max-w-4xl mx-auto text-center">
         <MotionFade>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6">
-            Welcome to GamerHub
-          </h1>
+          <div className="flex flex-col items-center gap-4">
+            <GamepadIcon className="w-24 h-24 text-primary animate-pulse" />
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6">
+              Welcome to GamerHub
+            </h1>
+          </div>
         </MotionFade>
 
         <MotionFade delay={0.2}>
