@@ -76,7 +76,15 @@ export default function Posts() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-lg mb-4 whitespace-pre-wrap">{message.content}</p>
+                      {message.content && (
+                        <p className="text-lg mb-4 whitespace-pre-wrap">{message.content}</p>
+                      )}
+                      {message.referencedMessage && (
+                        <div className="ml-4 pl-4 border-l-2 border-primary/20 mb-4">
+                          <p className="text-sm text-muted-foreground mb-2">Forwarded message:</p>
+                          <p className="text-lg whitespace-pre-wrap">{message.referencedMessage}</p>
+                        </div>
+                      )}
                       {message.attachments.map((attachment, i) => (
                         attachment.contentType?.startsWith('image/') && (
                           <AspectRatio key={i} ratio={16/9} className="overflow-hidden rounded-md">
