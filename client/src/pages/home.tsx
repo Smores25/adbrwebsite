@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Hero />
+      <Staff />
       <Features />
       <Rules />
-      <Staff />
       <Community />
     </div>
   );
