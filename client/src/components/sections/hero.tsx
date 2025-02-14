@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MotionFade } from "@/components/ui/motion-fade";
 import { SiDiscord } from "react-icons/si";
+import { Link } from "wouter";
 
 export default function Hero() {
   return (
@@ -11,7 +12,7 @@ export default function Hero() {
             Welcome to GamerHub
           </h1>
         </MotionFade>
-        
+
         <MotionFade delay={0.2}>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
             Join our thriving gaming community where passion meets play. Connect, compete, and create lasting friendships.
@@ -19,10 +20,17 @@ export default function Hero() {
         </MotionFade>
 
         <MotionFade delay={0.4}>
-          <Button size="lg" className="gap-2">
-            <SiDiscord className="w-5 h-5" />
-            Join Our Server
-          </Button>
+          <div className="flex gap-4 justify-center">
+            <Button size="lg" className="gap-2">
+              <SiDiscord className="w-5 h-5" />
+              Join Our Server
+            </Button>
+            <Link href="/posts">
+              <Button size="lg" variant="secondary">
+                View Posts
+              </Button>
+            </Link>
+          </div>
         </MotionFade>
       </div>
     </section>
