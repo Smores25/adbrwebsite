@@ -25,9 +25,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const formattedMessages = messages
         .filter(msg => {
+          // Get message content from either direct content or referenced message
+          const messageContent = msg.content || (msg.message_reference && msg.referenced_message?.content) || '';
+          const messageAttachments = [...(msg.attachments || []), ...(msg.message_reference ? (msg.referenced_message?.attachments || []) : [])];
+
           if (!messageType || messageType === 'all') {
             // Skip messages that only contain role pings
-            const isOnlyRolePing = msg.content.trim().startsWith('<@&') && msg.content.trim().endsWith('>') && !msg.attachments.length;
+            const isOnlyRolePing = messageContent.trim().startsWith('<@&') && messageContent.trim().endsWith('>') && !messageAttachments.length;
             return !isOnlyRolePing;
           }
           
@@ -45,9 +49,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         .map(msg => ({
           id: msg.id,
           author: msg.author.username,
-          content: msg.content,
+          content: msg.content || (msg.message_reference && msg.referenced_message?.content) || '',
           timestamp: msg.timestamp,
-          attachments: msg.attachments
+          attachments: [...(msg.attachments || []), ...(msg.message_reference ? (msg.referenced_message?.attachments || []) : [])]
             .filter((att: any) => att.content_type?.startsWith('image/'))
             .map((att: any) => ({
               url: att.url,
