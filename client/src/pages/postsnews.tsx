@@ -29,13 +29,7 @@ export default function Posts() {
   });
 
   return (
-    <div className="min-h-screen bg-background py-20 px-4 relative">
-      <div 
-        className="absolute inset-0 bg-[url('https://i.imgur.com/bnC9cs4.png')] 
-        bg-cover bg-center bg-no-repeat"
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95" />
-      </div>
+    <div className="min-h-screen bg-background py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-8">
           <SectionHeading 
