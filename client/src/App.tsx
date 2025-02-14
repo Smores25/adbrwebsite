@@ -6,10 +6,6 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Posts from "@/pages/postsleaks";
 import PostsNews from "@/pages/postsnews";
-import PostsPlanned from "@/pages/postsplanned";
-import PostsUnreleased from "@/pages/postsunreleased";
-import PostsFutureUpdate from "@/pages/postsfutureupdates";
-
 
 function Router() {
   return (
@@ -17,9 +13,6 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/postsleaks" component={Posts} />
       <Route path="/postsnews" component={PostsNews} />
-      <Route path="/postsplanned" component={PostsPlanned} />
-       <Route path="/postsfutureupdates" component={PostsFutureUpdate} />
-       <Route path="/postsunreleased" component={PostsUnreleased} />
       <Route component={NotFound} />
     </Switch>
   );

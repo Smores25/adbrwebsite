@@ -47,10 +47,10 @@ export default function Hero() {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem onClick={() => window.location.href = "/postsnews"}>GV News</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.location.href = "/postsfutureupdates"}>GV Future Updates</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postsupdates"}>GV Future Updates</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => window.location.href = "/postsleaks"}>GV Leaks</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.location.href = "/postsunreleased"}>GV Unreleased Cars</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.location.href = "/postsplanned"}>GV Planned Cars</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postscarunreleased"}>Unreleased Cars</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postsplanned"}>Planned Cars</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

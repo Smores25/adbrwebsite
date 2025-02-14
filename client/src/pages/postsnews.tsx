@@ -7,9 +7,8 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
-import { ImageViewer } from "@/components/ui/image-viewer";
 
-const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602957";
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
 const CHANNEL_ID = "961457576795602957";
 
 interface DiscordMessage {
@@ -25,7 +24,7 @@ interface DiscordMessage {
 
 export default function Posts() {
   const { data: messages, isLoading, error } = useQuery<DiscordMessage[]>({
-    queryKey: [`/api/discord/messages/${CHANNEL_ID}?`]
+    queryKey: [`/api/discord/messages/${CHANNEL_ID}`]
   });
 
   return (
@@ -47,9 +46,6 @@ export default function Posts() {
               View Channel on Discord
             </Button>
           </a>
-          <Button variant="ghost" className="mt-4" onClick={() => window.location.href = "/"}>
-            Back to Home
-          </Button>
         </div>
 
         <ScrollArea className="h-[600px] rounded-md border">
@@ -79,21 +75,14 @@ export default function Posts() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      {message.content && (
-                        <p className="text-lg mb-4 whitespace-pre-wrap">{message.content}</p>
-                      )}
-                      {message.referencedMessage && (
-                        <div className="ml-4 pl-4 border-l-2 border-primary/20 mb-4">
-                          <p className="text-sm text-muted-foreground mb-2">Forwarded message:</p>
-                          <p className="text-lg whitespace-pre-wrap">{message.referencedMessage}</p>
-                        </div>
-                      )}
+                      <p className="text-lg mb-4">{message.content}</p>
                       {message.attachments.map((attachment, i) => (
                         attachment.contentType?.startsWith('image/') && (
                           <AspectRatio key={i} ratio={16/9} className="overflow-hidden rounded-md">
-                            <ImageViewer
+                            <img
                               src={attachment.url}
                               alt={`Attachment from ${message.author}`}
+                              className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
                             />
                           </AspectRatio>
                         )
