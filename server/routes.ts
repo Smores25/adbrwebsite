@@ -46,13 +46,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
             default: return true;
           }
         })
-        .map(msg => ({
-          id: msg.id,
-          author: msg.author.username,
-          content: msg.content || '',
-          referencedMessage: msg.referenced_message?.content || null,
-          timestamp: msg.timestamp,
-          attachments: [...(msg.attachments || []), ...(msg.message_reference ? (msg.referenced_message?.attachments || []) : [])]
+        .map(msg => {
+          const hasReference = msg.type === 19 || (msg.message_reference && msg.referenced_message);
+          return {
+            id: msg.id,
+            author: msg.author.username,
+            content: msg.content || '',
+            referencedMessage: hasReference ? msg.referenced_message?.content : null,
+            timestamp: msg.timestamp,
+            attachments: [...(msg.attachments || []), ...(hasReference ? (msg.referenced_message?.attachments || []) : [])]
             .filter((att: any) => att.content_type?.startsWith('image/'))
             .map((att: any) => ({
               url: att.url,

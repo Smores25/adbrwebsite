@@ -16,6 +16,7 @@ interface DiscordMessage {
   id: string;
   author: string;
   content: string;
+  referencedMessage: string | null;
   timestamp: string;
   attachments: Array<{
     url: string;
