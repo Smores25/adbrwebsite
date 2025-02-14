@@ -21,8 +21,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
         Routes.channelMessages(channelId)
       ) as any[];
 
+      const messageType = req.query.type as string;
+      
       const formattedMessages = messages
-        .filter(msg => msg.attachments.some((att: any) => att.content_type?.startsWith('image/')))
+        .filter(msg => {
+          if (!messageType || messageType === 'all') return true;
+          
+          const hasAttachments = msg.attachments.some((att: any) => att.content_type?.startsWith('image/'));
+          const hasRolePing = msg.content.includes('@');
+          const hasOnlyText = !hasAttachments && !msg.content.includes('@');
+          
+          switch(messageType) {
+            case 'attachments': return hasAttachments;
+            case 'pings': return hasRolePing;
+            case 'text': return hasOnlyText;
+            default: return true;
+          }
+        })
         .map(msg => ({
           id: msg.id,
           author: msg.author.username,
