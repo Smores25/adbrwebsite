@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button";
 import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
 
-const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/1076248826731561140";
-const CHANNEL_ID = "1076248826731561140";
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
+const CHANNEL_ID = "961457576795602960";
 
 interface DiscordMessage {
   id: string;

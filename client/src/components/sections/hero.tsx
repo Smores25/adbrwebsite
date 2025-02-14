@@ -48,8 +48,9 @@ export default function Hero() {
               <DropdownMenuContent>
                 <DropdownMenuItem onClick={() => window.location.href = "/postsnews"}>GV News</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => window.location.href = "/postsupdates"}>GV Future Updates</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.location.href = "/posts"}>GV Leaks</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.location.href = "/postscarlist"}>Car List</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postsleaks"}>GV Leaks</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postscarunreleased"}>Unreleased Cars</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.location.href = "/postsplanned"}>Planned Cars</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

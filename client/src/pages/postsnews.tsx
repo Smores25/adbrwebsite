@@ -1,3 +1,4 @@
+
 import { SectionHeading } from "@/components/ui/section-heading";
 import { MotionFade } from "@/components/ui/motion-fade";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -7,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import { SiDiscord } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
 
-const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/1076248826731561140";
+const DISCORD_CHANNEL_URL = "https://canary.discord.com/channels/961457576342593606/961457576795602960";
+const CHANNEL_ID = "961457576795602957";
 
 interface DiscordMessage {
   id: string;
@@ -22,7 +24,7 @@ interface DiscordMessage {
 
 export default function Posts() {
   const { data: messages, isLoading, error } = useQuery<DiscordMessage[]>({
-    queryKey: ["/api/discord/messages"]
+    queryKey: [`/api/discord/messages/${CHANNEL_ID}`]
   });
 
   return (
@@ -30,7 +32,7 @@ export default function Posts() {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-8">
           <SectionHeading 
-            title="Gaming Highlights" 
+            title="GV News" 
             subtitle="Latest updates from our Discord channel"
           />
           <a 
