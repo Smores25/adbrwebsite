@@ -12,9 +12,11 @@ const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_BOT_TOKEN!
 
 // Staff roles to display (add your specific role IDs here)
 const STAFF_ROLE_IDS = [
-  "961457576342593607", // Admin
-  "1246621054621978738", // Moderator
-  "961457576476819547"  // Helper
+  "961457576476819547",  // Lazy Fox Owner
+  "961467472123404298",  // Server Manager
+  "1246621054621978738", // Staff Manager
+  "1075934726667386930", // Staff In Training
+  "1251999034273562625"  // Staff Intern
 ];
 
 export async function registerRoutes(app: Express): Promise<Server> {
