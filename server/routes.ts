@@ -25,7 +25,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const formattedMessages = messages
         .filter(msg => {
-          if (!messageType || messageType === 'all') return true;
+          if (!messageType || messageType === 'all') {
+            // Skip messages that only contain role pings
+            const isOnlyRolePing = msg.content.trim().startsWith('<@&') && msg.content.trim().endsWith('>') && !msg.attachments.length;
+            return !isOnlyRolePing;
+          }
           
           const hasAttachments = msg.attachments.some((att: any) => att.content_type?.startsWith('image/'));
           const hasRolePing = msg.content.includes('@');
@@ -33,7 +37,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           
           switch(messageType) {
             case 'attachments': return hasAttachments;
-            case 'pings': return hasRolePing;
+            case 'pings': return hasRolePing && (msg.content.length > msg.content.trim().length || !msg.content.trim().startsWith('<@&'));
             case 'text': return hasOnlyText;
             default: return true;
           }
