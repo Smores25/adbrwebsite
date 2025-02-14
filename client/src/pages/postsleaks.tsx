@@ -24,7 +24,7 @@ interface DiscordMessage {
 
 export default function Posts() {
   const { data: messages, isLoading, error } = useQuery<DiscordMessage[]>({
-    queryKey: [`/api/discord/messages/${CHANNEL_ID}`]
+    queryKey: [`/api/discord/messages/${CHANNEL_ID}type=attachments`]
   });
 
   return (
