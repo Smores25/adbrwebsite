@@ -1,0 +1,8 @@
+
+--- 2025-02-14T21:59:57.240Z debug
+🪵  Writing logs to "/home/runner/workspace/.config/.wrangler/logs/wrangler-2025-02-14_21-59-57_078.log"
+---
+
+--- 2025-02-14T21:59:57.240Z debug
+Metrics dispatcher: Posting data {"deviceId":"5b2b334a-20e3-4711-8349-b9333d3dff5e","event":"wrangler command started","timestamp":1739570397240,"properties":{"amplitude_session_id":1739570397238,"amplitude_event_id":0,"wranglerVersion":"3.109.1","osPlatform":"Linux","osVersion":"#1-NixOS SMP PREEMPT_DYNAMIC Tue Jan  1 00:00:00 UTC 1980","nodeVersion":20,"packageManager":"npm","isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":true,"hasAssets":false,"argsUsed":[],"argsCombination":"","command":"wrangler pages deploy","args":{"xJsonConfig":true,"j":true,"noBundle":false,"uploadSourceMaps":false,"directory":"<REDACTED>"}}}
+---

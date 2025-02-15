@@ -1,0 +1,48 @@
+
+--- 2025-02-14T22:17:04.170Z debug
+🪵  Writing logs to "/home/runner/workspace/.config/.wrangler/logs/wrangler-2025-02-14_22-17-04_035.log"
+---
+
+--- 2025-02-14T22:17:04.170Z debug
+Metrics dispatcher: Posting data {"deviceId":"5b2b334a-20e3-4711-8349-b9333d3dff5e","event":"wrangler command started","timestamp":1739571424169,"properties":{"amplitude_session_id":1739571424168,"amplitude_event_id":0,"wranglerVersion":"3.109.1","osPlatform":"Linux","osVersion":"#1-NixOS SMP PREEMPT_DYNAMIC Tue Jan  1 00:00:00 UTC 1980","nodeVersion":20,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":true,"hasAssets":false,"argsUsed":[],"argsCombination":"","command":"wrangler login","args":{"xJsonConfig":true,"j":true,"browser":true}}}
+---
+
+--- 2025-02-14T22:17:04.178Z debug
+.env file not found at ".env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2025-02-14T22:17:04.208Z log
+
+ ⛅️ wrangler 3.109.1
+[38;2;255;136;0m--------------------[39m
+
+---
+
+--- 2025-02-14T22:17:04.215Z log
+Attempting to login via OAuth...
+---
+
+--- 2025-02-14T22:17:04.219Z log
+Opening a link in your default browser: https://dash.cloudflare.com/oauth2/auth?response_type=code&client_id=54d11594-84e4-41aa-b438-e81b8fa78ee7&redirect_uri=http%3A%2F%2Flocalhost%3A8976%2Foauth%2Fcallback&scope=account%3Aread%20user%3Aread%20workers%3Awrite%20workers_kv%3Awrite%20workers_routes%3Awrite%20workers_scripts%3Awrite%20workers_tail%3Aread%20d1%3Awrite%20pages%3Awrite%20zone%3Aread%20ssl_certs%3Awrite%20ai%3Awrite%20queues%3Awrite%20pipelines%3Awrite%20offline_access&state=8xHR1hRdp2vthpudt_.ntde7GIcDR7LU&code_challenge=NlAg3n45DQbNMvcBhWj8NgU_5e-jjUbB41z8N477CfE&code_challenge_method=S256
+---
+
+--- 2025-02-14T22:19:04.249Z log
+
+---
+
+--- 2025-02-14T22:19:04.291Z error
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTimed out waiting for authorization code, please try again.[0m
+
+
+---
+
+--- 2025-02-14T22:19:04.291Z debug
+Error: Timed out waiting for authorization code, please try again.
+    at Timeout.<anonymous> (/home/runner/workspace/.config/npm/node_global/lib/node_modules/wrangler/wrangler-dist/cli.js:108430:9)
+    at listOnTimeout (node:internal/timers:581:17)
+    at process.processTimers (node:internal/timers:519:7)
+---
+
+--- 2025-02-14T22:19:04.292Z debug
+Metrics dispatcher: Posting data {"deviceId":"5b2b334a-20e3-4711-8349-b9333d3dff5e","event":"wrangler command errored","timestamp":1739571544292,"properties":{"amplitude_session_id":1739571424168,"amplitude_event_id":1,"wranglerVersion":"3.109.1","osPlatform":"Linux","osVersion":"#1-NixOS SMP PREEMPT_DYNAMIC Tue Jan  1 00:00:00 UTC 1980","nodeVersion":20,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":true,"hasAssets":false,"argsUsed":[],"argsCombination":"","command":"wrangler login","args":{"xJsonConfig":true,"j":true,"browser":true},"durationMs":120139,"durationSeconds":120.139,"durationMinutes":2.0023166666666667,"errorType":"UserError"}}
+---
